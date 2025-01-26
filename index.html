@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MTL100 Course Material</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Course materials and tutorials for MTL100.">
+    <meta name="author" content="Monil">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+
+    <style>
+        body {
+            background-image: url('https://imgs.search.brave.com/veemZ7bpeX3eQ6Nd-MU_5_MyeKB4CHzGo_-aZJx5JFM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNy8x/MC8zMS8xNy80NC9j/aGVycmllcy0yOTA1/OTY0XzY0MC5qcGc');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #FFD700;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7), 0 0 20px #FF4500;
+            animation: glow 1.5s infinite alternate;
+            background: linear-gradient(90deg, #FF6347, #FFD700, #32CD32);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .dropdown {
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: margin-bottom 0.3s ease;
+            width: 80%;
+        }
+
+        .dropdown-header {
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: #62a4e9;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-header:hover {
+            background-color: #0056b3;
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow-y: hidden;
+            background-color: rgba(93, 233, 83, 0.8);
+            transition: max-height 0.5s ease;
+        }
+
+        .dropdown-content.open {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            background-color: #0a5068;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content a:hover {
+            background-color: #0056b3;
+        }
+
+        .dropdown-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .dropdown-content::-webkit-scrollbar-thumb {
+            background-color: #62a4e9;
+            border-radius: 10px;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FF4500, 0 0 30px #FF4500;
+            }
+            to {
+                text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FF4500, 0 0 40px #FF4500;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            dropdowns.forEach(dropdown => {
+                const header = dropdown.querySelector('.dropdown-header');
+                const content = dropdown.querySelector('.dropdown-content');
+
+                header.addEventListener('click', () => {
+                    const isOpen = content.classList.contains('open');
+                    closeAllDropdowns();
+                    if (!isOpen) {
+                        content.classList.add('open');
+                    }
+                });
+            });
+
+            function closeAllDropdowns() {
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.classList.remove('open');
+                });
+            }
+
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.dropdown')) {
+                    closeAllDropdowns();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>MTL100 Course Material</h1>
+
+    <div class="dropdown">
+        <div class="dropdown-header">Lectures</div>
+        <div class="dropdown-content">
+            <!-- Generate lecture links dynamically -->
+            <script>
+                for (let i = 1; i <= 35; i++) {
+                    const link = `https://web.iitd.ac.in/~sreenadh/teaching/mtl100/pdff/Lecture${i}.pdf`;
+                    document.write(`<a href="${link}" target="_blank">Lecture ${i}</a>`);
+                }
+            </script>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-header">Tutorials</div>
+        <div class="dropdown-content">
+            <a href="https://web.iitd.ac.in/~sreenadh/teaching/mtl100/pdff/Tutorial-1.pdf" target="_blank">Tutorial 1</a>
+            <a href="https://web.iitd.ac.in/~sreenadh/teaching/mtl100/pdff/Tutorials-2.pdf" target="_blank">Tutorial 2</a>
+            <a href="https://web.iitd.ac.in/~sreenadh/teaching/mtl100/pdff/Tutorials-3.pdf" target="_blank">Tutorial 3</a>
+            <a href="https://web.iitd.ac.in/~sreenadh/teaching/mtl100/pdff/Tutorials-4.pdf" target="_blank">Tutorial 4</a>
+            <a href="https://web.iitd.ac.in/~sreenadh/teaching/mtl100/pdff/Tutorials-5.pdf" target="_blank">Tutorial 5</a>
+            <a href="https://web.iitd.ac.in/~sreenadh/teaching/mtl100/pdff/Tutorials-6.pdf" target="_blank">Tutorial 6</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-header">Exams</div>
+        <div class="dropdown-content">
+            <a href="https://drive.google.com/file/d/1kl9JTpEkUCAkiIo7XU7ItGD_fTeqiBrR/view" target="_blank">Quiz 1</a>
+            <a href="https://drive.google.com/file/d/1G8uQgYMbjCiHAmeKoeF0dXuUQSn5ygCR/view" target="_blank">Minor</a>
+            <a href="https://drive.google.com/file/d/14ws2vrv0n8Dv3WDp38y5qgB9ewFYlOZb/view" target="_blank">Quiz 2</a>
+            <a href="https://drive.google.com/file/d/1BXLmN5Z95p04_vZCAIQSp1kMCPXhtxjE/view" target="_blank">Major</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-header">Books</div>
+        <div class="dropdown-content">
+            <a href="https://rodrigopacios.github.io/mrpacios/download/Thomas_Calculus.pdf" target="_blank">Thomas' Calculus</a>
+            <a href="https://homel.vsb.cz/~ulc0011/Abbott%20-%20Understanding%20Analysis.pdf" target="_blank">Understanding Analysis</a>
+            <a href="https://theswissbay.ch/pdf/Gentoomen%20Library/Maths/Calculus/Tom%20Apostol%20-%20Calculus%20Vol.2%20-%20Multi-Variable%20Calculus%20and%20Linear%20Algebra%20with%20Applications.pdf" target="_blank">Calculus, Volume 2</a>
+        </div>
+    </div>
+
+    <footer>
+        <h3>DEVELOPED BY MONIL</h3>
+        <p><a href="mailto:monilsavaliya416@gmail.com">FOR ANY CHANGES CONTACT: MONIL</a></p>
+        <p>&copy; 2025</p>
+    </footer>
+</body>
+</html>
